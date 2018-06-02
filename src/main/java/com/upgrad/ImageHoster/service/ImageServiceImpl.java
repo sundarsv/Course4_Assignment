@@ -28,6 +28,10 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public Image getByTitleWithJoin(String title) { return imageManager.getImageByTitleWithJoins(title); }
 
+    //Implementing newservice to getById to fix: https://github.com/upgrad-edu/Course4_Assignment/issues/2
+    @Override
+    public Image getById (int id){ return imageManager.getImageById(id); }
+
     @Override
     public void deleteByTitle(Image image) {
         imageManager.deleteImage(image.getTitle());

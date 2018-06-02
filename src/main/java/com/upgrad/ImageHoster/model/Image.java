@@ -58,13 +58,9 @@ public class Image implements Serializable{
         this.tags = tags;
     }
 
-    public int getId() {
-        return this.id;
-    }
+    public int getId() { return this.id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
     public void setTitle(String title) {
         this.title = title;

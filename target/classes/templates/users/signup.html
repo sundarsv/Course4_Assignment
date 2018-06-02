@@ -9,11 +9,6 @@
 </head>
 
 <body class="sans-serif">
-<!--/* Creating a new div to throw error if Username already exists */-->
-<div th:if="${errors != null}" class="flex items-center justify-center pa4 bg-light-red black" >
-    <h3 class="lh-title ml3">Username already exists</h3>
-</div>
-
 <main class="pa4 black-80">
     <form method="POST" action="/signup" class="measure center">
         <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
@@ -21,12 +16,12 @@
             <div class="mt3">
                 <label class="db fw6 lh-copy f6" for="username">Username</label>
                 <input class="pa2 input-reset ba w-100" type="text" name="username" id="username">
-                <!--/* <p class="f6 red mt1" th:if="${errors != null and errors.get('username') != null}" th:text="${errors.get('username')}"></p>*/-->
+                <p class="f6 red mt1" th:if="${errors!= null and errors.get('username') != null}" th:text="${errors.get('username')}"></p>
             </div>
             <div class="mt3">
                 <label class="db fw6 lh-copy f6" for="password">Password</label>
                 <input class="pa2 input-reset ba w-100" type="password" name="password" id="password">
-                <!--/* <p class="f6 red mt1" th:if="${errors != null and errors.get('password') != null}" th:text="${errors.get('password')}"></p>*/-->
+                <p class="f6 red mt1" th:if="${errors != null and errors.get('password') != null}" th:text="${errors.get('password')}"></p>
             </div>
         </fieldset>
         <div class="mt3">

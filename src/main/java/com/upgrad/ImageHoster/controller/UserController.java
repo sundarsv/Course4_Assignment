@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.sql.ResultSet;
 import java.util.Base64;
+import java.util.HashMap;
 
 
 @Controller
@@ -62,10 +63,15 @@ public class UserController {
                              Model model,
                              HttpSession session) {
         //Trying to check if the user name already exists;
+        HashMap<String, String> errors = new HashMap<String, String>();
         if (userService.getByName(username) !=null ) {
-            String errors = "Username already exists";
+            errors.put("username", "Username has been registered");
             model.addAttribute("errors", errors);
-        } else { /*Creating new user if the user name does NOT exist*/
+        } else if (username.length() < 6 || password.length() < 6) { //validating the length of the input string
+            errors.put("username", "needs to be 6 characters or longer");
+            errors.put("password", "needs to be 6 characters or longer");
+            model.addAttribute("errors", errors);
+        } else { /*Creating new user if the user name does NOT exist OR if the user name is long enough*/
             // We'll first assign a default photo to the user
             ProfilePhoto photo = new ProfilePhoto();
             profilePhotoService.save(photo);

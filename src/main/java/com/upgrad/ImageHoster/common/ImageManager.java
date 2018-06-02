@@ -13,7 +13,6 @@ import java.util.List;
 public class ImageManager extends SessionManager {
     /**
      * This method retrieves all of the images saved in the database
-     *
      * @return a List of Image objects
      */
     public List<Image> getAllImages() {

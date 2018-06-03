@@ -1,8 +1,10 @@
 package com.upgrad.ImageHoster.controller;
 
+import com.upgrad.ImageHoster.model.Comment;
 import com.upgrad.ImageHoster.model.Image;
 import com.upgrad.ImageHoster.model.Tag;
 import com.upgrad.ImageHoster.model.User;
+import com.upgrad.ImageHoster.service.CommentService;
 import com.upgrad.ImageHoster.service.ImageService;
 import com.upgrad.ImageHoster.service.TagService;
 import com.upgrad.ImageHoster.service.UserService;
@@ -33,6 +35,9 @@ public class ImageController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CommentService commentService;
 
     /**
      * This controller method returns all the images that have been
@@ -146,6 +151,26 @@ public class ImageController {
 
         return "redirect:/";
     }
+
+    /*
+    * This controller is to recieve the form input and to create a new comment
+
+    @RequestMapping (value = "/image/{id}/comments/create", method = RequestMethod.POST)
+    public String newComment (@RequestParam("comment") String description, @PathVariable int id,
+                              HttpSession session) throws IOException {
+        User currUser = (User) session.getAttribute("currUser");
+
+        // if the user is not logged in, redirect to the home page
+        if(currUser == null ){
+            return "redirect:/";
+        } else {
+            Comment comments = new Comment(description);
+            commentService.save(comments);
+        }
+        return "redirect:/";
+    }*/
+
+
 
     /**
      * This controller method displays an image edit form, so the user

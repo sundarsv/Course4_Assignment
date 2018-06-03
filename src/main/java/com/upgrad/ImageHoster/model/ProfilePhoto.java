@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Photo")
+@Table(name = "photo")
 public class ProfilePhoto implements Serializable{
     // This is the base64 based encoding of the default ProfilePicture
     final static String defaultAvatarBase64 =
